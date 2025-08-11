@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shiralyn's home</title>
+  <style>
+    body {
+      background-image: url('images/bg_tile.gif');
+      background-repeat: repeat;
+      color: lime;
+      font-family: "Comic Sans MS", cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: yellow;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: hotpink;
+      background-color: black;
+    }
+
+    .container {
+      border: 5px ridge magenta;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    marquee {
+      font-size: 24px;
+      font-weight: bold;
+      color: rgb(255, 0, 221);
+      text-shadow: 0 0 5px #830088;
+    }
+
+    .blink {
+      animation: blink-animation 1s steps(2, start) infinite;
+      -webkit-animation: blink-animation 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    img {
+      margin: 10px;
+    }
+
+    .sparkle {
+      filter: drop-shadow(0 0 5px yellow);
+    }
+
+  </style>
+</head>
+<body>
+
+    <marquee>Welcome to my website! :)</marquee>
+
+  <div class="container">
+
+    <img src="images/under_construction.gif" alt="Under Construction" class="sparkle"><br>
+
+    <p class="blink">Thanks for visiting my page! Sign my guestbook!</p>
+
+    <a href="mailto:jultomtenriktig@gmail.com">
+      <img src="images/email.gif" alt="Email Me!" class="sparkle">
+    </a>
+
+    <p><img src="images/stars.gif" alt="Stars!" class="sparkle"></p>
+
+    <p><a href="guestbook.html">📖 View Guestbook</a> | <a href="sign.html">✍️ Sign Guestbook</a></p>
+
+  </div>
+</body>
+</html>
