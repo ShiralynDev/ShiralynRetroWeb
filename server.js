@@ -1,47 +1,25 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
 
-const entriesFile = path.join(__dirname, 'entries.json');
-
-function loadEntries() {
-  if (!fs.existsSync(entriesFile)) return [];
-  return JSON.parse(fs.readFileSync(entriesFile, 'utf-8'));
-}
-
-function saveEntries(entries) {
-  fs.writeFileSync(entriesFile, JSON.stringify(entries, null, 2));
-}
-
-app.get('/api/entries', (req, res) => {
-  const entries = loadEntries();
-  res.json(entries);
+app.get('/entries', (req, res) => {
+  const entriesPath = path.join(__dirname, 'entries.json');
+  fs.readFile(entriesPath, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Could not read entries' });
+    try {
+      const entries = JSON.parse(data);
+      res.json(entries);
+    } catch (e) {
+      res.status(500).json({ error: 'Invalid entries format' });
+    }
+  });
 });
 
-app.post('/api/entries', (req, res) => {
-  const { name, message } = req.body;
-  if (!name || !message) {
-    return res.status(400).json({ error: 'Name and message are required.' });
-  }
-
-  const entries = loadEntries();
-  const newEntry = {
-    name,
-    message,
-    date: new Date().toLocaleString()
-  };
-  entries.unshift(newEntry);
-  saveEntries(entries);
-
-  res.status(200).json({ success: true });
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Guestbook server running at http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server listening on http://localhost:${port}`);
 });
