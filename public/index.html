@@ -35,12 +35,37 @@
     .socials {
       border: 5px ridge magenta;
       background-color: rgba(0, 0, 0, 0.7);
-      width: 80%;
-      margin: 40px auto;
-      padding: 5px;
-      align-items: left;
-      align-content: left;
+      max-width: 80%;
+      align-self: center;
+      margin: 10px auto;
+      text-align: left;
     }
+
+      .socials .social-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        margin: 10px;
+        margin-left: 2px;
+        margin-right: 2px;
+        background: rgba(255,255,255,0.02);
+        border-radius: 6px;
+        text-decoration: none;
+        color: yellow;
+        font-weight: bold;
+      }
+
+      .socials .social-item img {
+        width: 28px;
+        height: 28px;
+        margin: 0;
+        vertical-align: middle;
+      }
+
+      .socials .social-item:hover {
+        background: rgba(255,255,255,0.06);
+      }
 
     marquee {
       font-size: 24px;
@@ -72,7 +97,7 @@
 </head>
 <body>
 
-    <marquee>Welcome to my website! :)</marquee>
+  <marquee>Welcome to my website! :)</marquee>
 
   <div class="container">
 
@@ -80,17 +105,26 @@
 
     <p class="blink">Thanks for visiting my page!</p>
 
+    <h1>Socials</h1>
     <div class="socials">
-      <p>test</p>
-      <p>test2</p>
+      <a class="social-item" href="https://www.youtube.com/@ShiralynReal" target="_blank" rel="noopener noreferrer">
+        <img src="images/yt.webp" alt="YouTube">
+        <span class="social-label">ShiralynReal</span>
+      </a>
+
+      <a class="social-item" href="https://www.youtube.com/@ShiralynDev" target="_blank" rel="noopener noreferrer">
+        <img src="images/yt.webp" alt="YouTube">
+        <span class="social-label">ShiralynDev</span>
+      </a>
+
+      <a class="social-item" href="https://github.com/ShiralynDev" target="_blank" rel="noopener noreferrer">
+        <img src="images/github.webp" alt="YouTube">
+        <span class="social-label">ShiralynDev</span>
+      </a>
     </div>
 
-    <a href="mailto:jultomtenriktig@gmail.com">
-      <img src="images/email.gif" alt="Email Me!" class="sparkle">
-    </a>
-
     <p><img src="images/stars.gif" alt="Stars!" class="sparkle"></p>
-
   </div>
+
 </body>
 </html>
